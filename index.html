@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📚 Dicas para Estudantes de DS</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+            max-width: 800px;
+            width: 100%;
+            padding: 30px;
+            animation: slideUp 0.8s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .header .logo {
+            font-size: 48px;
+            margin-bottom: 5px;
+        }
+
+        .header h1 {
+            color: #1a202c;
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .header h1 span {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .header .subtitle {
+            color: #718096;
+            font-size: 15px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #48bb78, #38a169);
+            color: white;
+            padding: 4px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+
+        .info-box {
+            background: linear-gradient(135deg, #f7fafc, #edf2f7);
+            border-left: 4px solid #667eea;
+            padding: 15px 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .info-box p {
+            color: #4a5568;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .info-box strong {
+            color: #2d3748;
+        }
+
+        .info-box .highlight {
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        .form-wrapper {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            background: white;
+            border: 1px solid #e2e8f0;
+        }
+
+        .form-wrapper iframe {
+            width: 100%;
+            height: 750px;
+            border: none;
+            display: block;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .footer .secure {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: #718096;
+            font-size: 13px;
+        }
+
+        .footer .secure .icon {
+            font-size: 16px;
+        }
+
+        .footer a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .footer .social {
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .footer .social a {
+            color: #4a5568;
+            font-size: 13px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            background: #f7fafc;
+            transition: all 0.3s ease;
+        }
+
+        .footer .social a:hover {
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            transform: translateY(-2px);
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 15px 0 20px 0;
+        }
+
+        .stats .stat-item {
+            text-align: center;
+        }
+
+        .stats .stat-item .number {
+            font-size: 20px;
+            font-weight: 700;
+            color: #2d3748;
+        }
+
+        .stats .stat-item .label {
+            font-size: 12px;
+            color: #718096;
+        }
+
+        /* Responsividade */
+        @media (max-width: 600px) {
+            .container {
+                padding: 16px;
+                border-radius: 16px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .form-wrapper iframe {
+                height: 650px;
+            }
+
+            .info-box {
+                padding: 12px 16px;
+            }
+
+            .stats {
+                gap: 15px;
+                flex-wrap: wrap;
+            }
+
+            .stats .stat-item .number {
+                font-size: 18px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .form-wrapper iframe {
+                height: 600px;
+            }
+        }
+
+        /* Loading */
+        .loading-placeholder {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 750px;
+            background: #f7fafc;
+            border-radius: 12px;
+            color: #a0aec0;
+            font-size: 16px;
+        }
+
+        .loading-placeholder .spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid #e2e8f0;
+            border-top-color: #667eea;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin-right: 12px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .form-wrapper iframe.loaded {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">📚</div>
+            <span class="badge">🎓 Comunidade de Estudantes</span>
+            <h1>Dicas para Estudantes de <span>Desenvolvimento</span> de Sistemas</h1>
+            <p class="subtitle">Receba conteúdos, dicas e materiais gratuitos</p>
+        </div>
+
+        <div class="info-box">
+            <p>
+                <strong>👋 Olá, futuro desenvolvedor!</strong><br>
+                Preencha o formulário abaixo para receber <strong class="highlight">dicas exclusivas</strong>, 
+                <strong class="highlight">materiais de estudo</strong> e ficar por dentro das novidades do 
+                curso de Desenvolvimento de Sistemas. É <strong>100% gratuito</strong>! 🚀
+            </p>
+        </div>
+
+        <div class="stats">
+            <div class="stat-item">
+                <div class="number">📖</div>
+                <div class="label">Materiais Gratuitos</div>
+            </div>
+            <div class="stat-item">
+                <div class="number">💡</div>
+                <div class="label">Dicas Semanais</div>
+            </div>
+            <div class="stat-item">
+                <div class="number">🤝</div>
+                <div class="label">Comunidade Ativa</div>
+            </div>
+        </div>
+
+        <div class="form-wrapper">
+            <!-- Loading placeholder -->
+            <div id="loadingPlaceholder" class="loading-placeholder">
+                <div class="spinner"></div>
+                <span>Carregando formulário...</span>
+            </div>
+
+            <!-- SEU FORMULÁRIO INCORPORADO -->
+            <iframe 
+                id="formIframe"
+                src="https://docs.google.com/forms/d/e/1FAIpQLSd8ndP9WsQj3WwTyDz4uEXQIzZPYYNQRr5WGVRdyodstNix6g/viewform?embedded=true" 
+                width="100%" 
+                height="750" 
+                frameborder="0" 
+                marginheight="0" 
+                marginwidth="0"
+                style="display: none;"
+                onload="document.getElementById('loadingPlaceholder').style.display='none'; this.style.display='block';">
+                Carregando formulário...
+            </iframe>
+        </div>
+
+        <div class="footer">
+            <div class="secure">
+                <span class="icon">🔒</span>
+                Seus dados estão seguros e não serão compartilhados
+            </div>
+            <div class="social">
+                <a href="#">📸 Instagram</a>
+                <a href="#">📱 WhatsApp</a>
+                <a href="#">💻 GitHub</a>
+                <a href="#">📧 E-mail</a>
+            </div>
+            <div style="margin-top: 10px; font-size: 12px; color: #a0aec0;">
+                Dúvidas? <a href="mailto:seu-email@exemplo.com">Entre em contato</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Ajustar altura do iframe dinamicamente
+        function ajustarIframe() {
+            const iframe = document.getElementById('formIframe');
+            const loading = document.getElementById('loadingPlaceholder');
+            
+            if (window.innerWidth < 400) {
+                iframe.style.height = '600px';
+                if (loading) loading.style.height = '600px';
+            } else if (window.innerWidth < 600) {
+                iframe.style.height = '650px';
+                if (loading) loading.style.height = '650px';
+            } else {
+                iframe.style.height = '750px';
+                if (loading) loading.style.height = '750px';
+            }
+        }
+
+        // Executar ao carregar e ao redimensionar
+        window.addEventListener('load', ajustarIframe);
+        window.addEventListener('resize', ajustarIframe);
+
+        // Se o iframe demorar muito, esconder o loading após 10 segundos
+        setTimeout(function() {
+            const loading = document.getElementById('loadingPlaceholder');
+            const iframe = document.getElementById('formIframe');
+            if (loading && loading.style.display !== 'none') {
+                loading.innerHTML = '⏳ O formulário está demorando para carregar...<br><small>Tente recarregar a página</small>';
+                loading.style.color = '#718096';
+            }
+        }, 10000);
+    </script>
+</body>
+</html>
