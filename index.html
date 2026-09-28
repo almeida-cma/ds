@@ -3,265 +3,433 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>📚 Dicas para Estudantes de DS</title>
+    <title>📚 Comunidade DS Proz — Dicas & Desafio Web 2026</title>
+    
+    <!-- Fontes Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@600;700;900&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@600;700&display=swap" rel="stylesheet">
+
     <style>
+        :root {
+            /* Paleta Dark Tech & Comunidade */
+            --bg-body: #070913;
+            --surface-card: #ffffff;
+            --primary: #6366f1;
+            --primary-hover: #4f46e5;
+            --secondary-violet: #8b5cf6;
+            --accent-cyan: #06b6d4;
+            --accent-pink: #ec4899;
+            --accent-gold: #f59e0b;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            --radius-lg: 20px;
+            --radius-md: 12px;
+            --font-display: 'Chakra Petch', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            --font-code: 'JetBrains Mono', monospace;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: var(--font-body);
         }
 
         body {
-            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            background: radial-gradient(circle at 50% 10%, #1e1145 0%, #0c0824 50%, #050410 100%);
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 20px;
+            padding: 30px 16px;
+            color: var(--text-main);
         }
 
         .container {
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-            max-width: 800px;
+            background: var(--surface-card);
+            border-radius: var(--radius-lg);
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.6);
+            max-width: 860px;
             width: 100%;
-            padding: 30px;
-            animation: slideUp 0.8s ease-out;
+            padding: 36px;
+            animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
         }
 
         @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(25px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
+        /* ==============================================================
+           BANNER DO EVENTO OUTUBRO 2026 (CHAMADA PRINCIPAL)
+        ============================================================== */
+        .event-banner {
+            background: linear-gradient(135deg, #090d22 0%, #181145 60%, #2b0b3a 100%);
+            border: 2px solid rgba(139, 92, 246, 0.4);
+            border-radius: var(--radius-md);
+            padding: 22px 24px;
+            margin-bottom: 25px;
+            color: #ffffff;
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.25);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .event-banner::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 4px;
+            background: linear-gradient(90deg, var(--accent-cyan), var(--secondary-violet), var(--accent-pink));
+        }
+
+        .event-header-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .event-badge {
+            font-family: var(--font-display);
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            background: rgba(245, 158, 11, 0.15);
+            border: 1px solid var(--accent-gold);
+            color: #fde047;
+            padding: 4px 14px;
+            border-radius: 20px;
+            text-transform: uppercase;
+        }
+
+        .event-deadline {
+            font-family: var(--font-code);
+            font-size: 12px;
+            color: var(--accent-cyan);
+            font-weight: 700;
+        }
+
+        .event-title {
+            font-family: var(--font-display);
+            font-size: 24px;
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 8px;
+            color: #ffffff;
+        }
+
+        .event-desc {
+            font-size: 14px;
+            line-height: 1.5;
+            color: #cbd5e1;
+            margin-bottom: 16px;
+        }
+
+        .event-desc strong {
+            color: #ffffff;
+        }
+
+        .event-action-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 14px;
+            padding-top: 14px;
+            border-top: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+        .event-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(90deg, #ec4899, #8b5cf6);
+            color: #ffffff;
+            font-family: var(--font-display);
+            font-size: 14px;
+            font-weight: 800;
+            text-decoration: none;
+            padding: 10px 22px;
+            border-radius: 30px;
+            box-shadow: 0 4px 15px rgba(236, 72, 153, 0.4);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .event-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(236, 72, 153, 0.6);
+        }
+
+        .event-contact {
+            font-family: var(--font-code);
+            font-size: 12px;
+            color: #cbd5e1;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .event-contact a {
+            color: var(--accent-gold);
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        /* ==============================================================
+           CABEÇALHO DA PÁGINA DE DICAS
+        ============================================================== */
         .header {
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 24px;
         }
 
         .header .logo {
-            font-size: 48px;
-            margin-bottom: 5px;
+            font-size: 44px;
+            margin-bottom: 4px;
         }
 
         .header h1 {
-            color: #1a202c;
-            font-size: 24px;
-            margin-bottom: 5px;
+            color: #0f172a;
+            font-size: 26px;
+            font-weight: 800;
+            margin-bottom: 6px;
+            letter-spacing: -0.5px;
         }
 
         .header h1 span {
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         .header .subtitle {
-            color: #718096;
+            color: var(--text-muted);
             font-size: 15px;
         }
 
-        .badge {
-            display: inline-block;
-            background: linear-gradient(135deg, #48bb78, #38a169);
-            color: white;
-            padding: 4px 16px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 600;
-            margin-bottom: 8px;
-            letter-spacing: 0.5px;
-        }
-
         .info-box {
-            background: linear-gradient(135deg, #f7fafc, #edf2f7);
-            border-left: 4px solid #667eea;
-            padding: 15px 20px;
-            border-radius: 10px;
+            background: #f8fafc;
+            border-left: 4px solid var(--primary);
+            padding: 16px 20px;
+            border-radius: var(--radius-md);
             margin-bottom: 20px;
-            border: 1px solid #e2e8f0;
+            border: 1px solid var(--border-color);
         }
 
         .info-box p {
-            color: #4a5568;
+            color: #334155;
             font-size: 14px;
-            line-height: 1.7;
+            line-height: 1.6;
         }
 
         .info-box strong {
-            color: #2d3748;
+            color: #0f172a;
         }
 
         .info-box .highlight {
-            color: #667eea;
-            font-weight: 600;
+            color: var(--primary);
+            font-weight: 700;
         }
 
+        /* ==============================================================
+           ESTATÍSTICAS / PILLS DE CONFIANÇA
+        ============================================================== */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 24px;
+        }
+
+        .stat-item {
+            text-align: center;
+            background: #f8fafc;
+            border: 1px solid var(--border-color);
+            padding: 12px;
+            border-radius: var(--radius-md);
+        }
+
+        .stat-item .number {
+            font-size: 22px;
+            margin-bottom: 2px;
+        }
+
+        .stat-item .label {
+            font-size: 13px;
+            font-weight: 600;
+            color: #475569;
+        }
+
+        /* ==============================================================
+           WRAPPER DO FORMULÁRIO RESPONSIVO (SEM HACK DE JS)
+        ============================================================== */
         .form-wrapper {
-            border-radius: 12px;
+            border-radius: var(--radius-md);
             overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            background: white;
-            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            position: relative;
+            min-height: clamp(620px, 75vh, 850px);
         }
 
         .form-wrapper iframe {
             width: 100%;
-            height: 750px;
+            height: clamp(620px, 75vh, 850px);
             border: none;
             display: block;
         }
 
+        .loading-placeholder {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: #f8fafc;
+            color: var(--text-muted);
+            font-size: 15px;
+            gap: 12px;
+            z-index: 2;
+            transition: opacity 0.3s ease;
+        }
+
+        .loading-placeholder .spinner {
+            width: 42px;
+            height: 42px;
+            border: 4px solid #e2e8f0;
+            border-top-color: var(--primary);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* ==============================================================
+           RODAPÉ E LINKS SOCIAIS
+        ============================================================== */
         .footer {
             text-align: center;
-            margin-top: 20px;
-            padding-top: 15px;
-            border-top: 1px solid #e2e8f0;
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
         }
 
         .footer .secure {
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            color: #718096;
+            color: var(--text-muted);
             font-size: 13px;
-        }
-
-        .footer .secure .icon {
-            font-size: 16px;
+            margin-bottom: 12px;
         }
 
         .footer .social {
-            margin-top: 10px;
             display: flex;
             justify-content: center;
-            gap: 15px;
+            gap: 12px;
             flex-wrap: wrap;
         }
 
         .footer .social a {
-            color: #4a5568;
+            color: #475569;
             font-size: 13px;
-            padding: 4px 12px;
+            font-weight: 600;
+            padding: 6px 14px;
             border-radius: 20px;
-            background: #f7fafc;
-            transition: all 0.3s ease;
+            background: #f1f5f9;
+            transition: all 0.2s ease;
             text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
         }
 
         .footer .social a:hover {
-            background: #667eea;
-            color: white;
+            background: var(--primary);
+            color: #ffffff;
             transform: translateY(-2px);
         }
 
-        .stats {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin: 15px 0 20px 0;
-        }
-
-        .stats .stat-item {
-            text-align: center;
-        }
-
-        .stats .stat-item .number {
-            font-size: 20px;
-            font-weight: 700;
-            color: #2d3748;
-        }
-
-        .stats .stat-item .label {
-            font-size: 12px;
-            color: #718096;
-        }
-
         /* Responsividade */
-        @media (max-width: 600px) {
+        @media (max-width: 640px) {
             .container {
-                padding: 16px;
+                padding: 20px 16px;
                 border-radius: 16px;
             }
 
-            .header h1 {
+            .event-title {
                 font-size: 20px;
             }
 
-            .form-wrapper iframe {
-                height: 650px;
-            }
-
-            .info-box {
-                padding: 12px 16px;
+            .header h1 {
+                font-size: 22px;
             }
 
             .stats {
-                gap: 15px;
-                flex-wrap: wrap;
+                gap: 8px;
             }
 
-            .stats .stat-item .number {
-                font-size: 18px;
+            .stat-item .label {
+                font-size: 11px;
             }
-        }
-
-        @media (max-width: 400px) {
-            .form-wrapper iframe {
-                height: 600px;
-            }
-        }
-
-        /* Loading */
-        .loading-placeholder {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 750px;
-            background: #f7fafc;
-            border-radius: 12px;
-            color: #a0aec0;
-            font-size: 16px;
-        }
-
-        .loading-placeholder .spinner {
-            width: 40px;
-            height: 40px;
-            border: 4px solid #e2e8f0;
-            border-top-color: #667eea;
-            border-radius: 50%;
-            animation: spin 0.8s linear infinite;
-            margin-right: 12px;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
         }
     </style>
 </head>
 <body>
+
     <div class="container">
-        <div class="header">
+
+        <!-- ==============================================================
+             CHAMADA DE DESTAQUE: DESAFIO OUTUBRO 2026
+        ============================================================== -->
+        <section class="event-banner" id="eventBanner">
+            <div class="event-header-row">
+                <span class="event-badge">★ Evento Oficial 2026 ★</span>
+                <span class="event-deadline">📅 Inscrições: 25 a 30 de Setembro</span>
+            </div>
+
+            <h2 class="event-title">De Iniciantes a Devs: Desafio Web 2026</h2>
+            <p class="event-desc">
+                Crie seu projeto prático nas categorias <strong>WebJornal</strong>, <strong>Halloween Tech</strong> ou <strong>Tema Livre</strong>. 
+                Participe individualmente ou em equipes de 2 a 5 alunos, com mentoria dos professores durante todo o mês de outubro!
+            </p>
+
+            <div class="event-action-row">
+                <a href="https://tdsjuizdefora-art.github.io/evento/" target="_blank" class="event-btn" id="eventLinkBtn">
+                    <span>Acessar Página do Desafio 🚀</span>
+                </a>
+
+                <div class="event-contact">
+                    <span>Dúvidas:</span>
+                    <a href="mailto:tds.juizdefora@gmail.com">tds.juizdefora@gmail.com</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- CABEÇALHO DO FORMULÁRIO -->
+        <header class="header">
             <div class="logo">📚</div>
-            <span class="badge">🎓 Comunidade de Estudantes</span>
             <h1>Dicas para Estudantes de <span>Desenvolvimento</span> de Sistemas</h1>
-            <p class="subtitle">Receba conteúdos, dicas e materiais gratuitos</p>
-        </div>
+            <p class="subtitle">Receba conteúdos, materiais de apoio e novidades da comunidade técnica</p>
+        </header>
 
         <div class="info-box">
             <p>
                 <strong>👋 Olá, futuro desenvolvedor!</strong><br>
                 Preencha o formulário abaixo para receber <strong class="highlight">dicas exclusivas</strong>, 
-                <strong class="highlight">materiais de estudo</strong> e ficar por dentro das novidades do 
-                curso de Desenvolvimento de Sistemas. É <strong>100% gratuito</strong>! 🚀
+                <strong class="highlight">materiais preparatórios</strong> para maratonas de código e avisos das próximas bancas de projetos. 
+                É <strong>100% gratuito</strong>!
             </p>
         </div>
 
@@ -280,72 +448,74 @@
             </div>
         </div>
 
+        <!-- FORMULÁRIO GOOGLE EMBUTIDO COM LOADING SUAVE -->
         <div class="form-wrapper">
-            <!-- Loading placeholder -->
             <div id="loadingPlaceholder" class="loading-placeholder">
                 <div class="spinner"></div>
-                <span>Carregando formulário...</span>
+                <span>Carregando formulário oficial...</span>
             </div>
 
-            <!-- SEU FORMULÁRIO INCORPORADO -->
             <iframe 
                 id="formIframe"
                 src="https://docs.google.com/forms/d/e/1FAIpQLSd8ndP9WsQj3WwTyDz4uEXQIzZPYYNQRr5WGVRdyodstNix6g/viewform?embedded=true" 
-                width="100%" 
-                height="750" 
-                frameborder="0" 
-                marginheight="0" 
-                marginwidth="0"
-                style="display: none;"
-                onload="document.getElementById('loadingPlaceholder').style.display='none'; this.style.display='block';">
+                loading="lazy"
+                title="Formulário de Inscrição e Dicas DS"
+                onload="onIframeLoaded()">
                 Carregando formulário...
             </iframe>
         </div>
 
-        <div class="footer">
+        <!-- RODAPÉ -->
+        <footer class="footer">
             <div class="secure">
-                <span class="icon">🔒</span>
-                Seus dados estão seguros e não serão compartilhados
+                <span>🔒</span>
+                Seus dados estão protegidos e serão utilizados apenas para fins acadêmicos.
             </div>
             <div class="social">
-                <a href="#">📸 Instagram</a>
-                <a href="#">📱 WhatsApp</a>
-                <a href="#">💻 GitHub</a>
-                <a href="#">📧 E-mail</a>
+                <a href="https://tdsjuizdefora-art.github.io/evento/" target="_blank">🌐 Site do Evento</a>
+                <a href="mailto:tds.juizdefora@gmail.com">📧 E-mail do Curso</a>
+                <a href="https://github.com" target="_blank">💻 GitHub</a>
             </div>
-        </div>
+        </footer>
+
     </div>
 
+    <!-- ==============================================================
+         CONFIGURAÇÃO CENTRALIZADA (ESCALABILIDADE)
+    ============================================================== -->
     <script>
-        // Ajustar altura do iframe dinamicamente
-        function ajustarIframe() {
-            const iframe = document.getElementById('formIframe');
-            const loading = document.getElementById('loadingPlaceholder');
-            
-            if (window.innerWidth < 400) {
-                iframe.style.height = '600px';
-                if (loading) loading.style.height = '600px';
-            } else if (window.innerWidth < 600) {
-                iframe.style.height = '650px';
-                if (loading) loading.style.height = '650px';
-            } else {
-                iframe.style.height = '750px';
-                if (loading) loading.style.height = '750px';
+        // CENTRAL DE CONFIGURAÇÃO (Altere aqui para futuros anos sem mexer no HTML)
+        const PAGE_CONFIG = {
+            eventActive: true, // Se mudar para false, esconde o banner do evento
+            eventUrl: "https://tdsjuizdefora-art.github.io/evento/",
+            contactEmail: "tds.juizdefora@gmail.com"
+        };
+
+        // Aplica as configurações dinamicamente
+        if (!PAGE_CONFIG.eventActive) {
+            const banner = document.getElementById('eventBanner');
+            if (banner) banner.style.display = 'none';
+        }
+
+        // Callback suave para desativar o placeholder de carregamento
+        function onIframeLoaded() {
+            const placeholder = document.getElementById('loadingPlaceholder');
+            if (placeholder) {
+                placeholder.style.opacity = '0';
+                setTimeout(() => {
+                    placeholder.style.display = 'none';
+                }, 300);
             }
         }
 
-        // Executar ao carregar e ao redimensionar
-        window.addEventListener('load', ajustarIframe);
-        window.addEventListener('resize', ajustarIframe);
-
-        // Se o iframe demorar muito, mostrar mensagem amigável
-        setTimeout(function() {
-            const loading = document.getElementById('loadingPlaceholder');
-            if (loading && loading.style.display !== 'none') {
-                loading.innerHTML = '⏳ O formulário está demorando para carregar...<br><small>Tente recarregar a página</small>';
-                loading.style.color = '#718096';
+        // Fallback caso a conexão esteja lenta
+        setTimeout(() => {
+            const placeholder = document.getElementById('loadingPlaceholder');
+            if (placeholder && placeholder.style.display !== 'none') {
+                placeholder.innerHTML = '⏳ O formulário está demorando a responder.<br><small style="margin-top:4px;">Verifique sua conexão ou recarregue a página.</small>';
             }
-        }, 10000);
+        }, 8000);
     </script>
+
 </body>
 </html>
